@@ -1,7 +1,8 @@
 body {
-  font-family: Courier, monospace;
+  font-family: 'Montserrat', serif;
   font-size: 1.2em;
   margin-left: 2em;
+  background-color: #45ADA8;
 }
 
 ul {
@@ -21,10 +22,26 @@ ul div {
 
 ul li {
   padding: 1em;
-  border: 6px solid #AFAFAF;
-  background: #E9E9E9;
+  border-radius: 5px;
+  background: #FFFFFF;
+  box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.1);
   height: 90%;
   cursor: pointer;
+  font-size: 16px;
+  color: #594F4F;
+}
+
+ul li:hover {
+  box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+li > strong {
+  color: #547980;
+  font-size: 24px;
 }
 
 a {
@@ -34,7 +51,37 @@ a {
 
 a.author {
   text-decoration: underline;
-  color: #111;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  letter-spacing: 2px;
+}
+
+h2.title {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: #E5FCC2;
+}
+
+button {
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: .875em;
+  margin: 0;
+  padding: 10px 24px;
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.success {
+  background-color: #9DE0AD;
+}
+
+button.primary {
+  background-color: #45ADA8;
 }
 
 .modal {
@@ -46,9 +93,10 @@ a.author {
   margin-top: -7.5em;
   margin-left: -10em;
   padding: 1em;
-  background-color: #f1c40f;
+  background-color: #E5FCC2;
   border-radius: 5px;
   text-align: center;
+  color: #594F4F;
   z-index: 11;
   /* 1px higher than the overlay layer */
   opacity: 1 !important;
