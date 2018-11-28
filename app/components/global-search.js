@@ -20,6 +20,17 @@ export default Component.extend({
       }
     },
 
+    closeModal() {
+      this.set('showModal', false)
+    },
+
+    showModal(book) {
+      this.send('close')
+      this.set('myBook', book)
+      this.set('showModal', true)
+      this.get('blurBackground')(true);
+    },
+
     q() {
       this.set('results', false)
       this.set('pending', true)

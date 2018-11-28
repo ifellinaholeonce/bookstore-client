@@ -1,0 +1,17 @@
+{{#modal-dialog onClose=(action "close") clickOutsideToClose=true}}
+
+  <div class="modal">
+    <h3>Purchase confirmation</h3>
+    You want to buy <strong>{{book.title}}</strong> by {{link-to book.author.name "author" book.author.id class="author"}}.
+
+    <p>
+      <button class="primary" {{action "close"}}>Purchase for ${{book.price}}!</button>
+    </p>
+
+    <p>
+      <em>Thank you! We will e-mail you your e-book</em>
+    </p>
+
+  </div>
+
+{{/modal-dialog}}
