@@ -9,6 +9,15 @@ import {
 export default Component.extend({
   ajax: inject(),
   actions: {
+    close() {
+      this.set('pending', false)
+      this.set('results', false)
+    },
+    open() {
+      if (this.get('books') || this.get('authors')) {
+        this.set('results', true)
+      }
+    },
     q() {
       this.set('results', false)
       this.set('pending', true)
@@ -16,6 +25,8 @@ export default Component.extend({
       let sendQuery = () => {
         if (query.q === '') {
           this.set('pending', false)
+          this.set('books', null)
+          this.set('authors', null)
           return
         }
         this.get('ajax').request('/search', {

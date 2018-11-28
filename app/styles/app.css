@@ -1,7 +1,6 @@
 body {
   font-family: 'Montserrat', serif;
   font-size: 1.2em;
-  margin-left: 2em;
   background-color: #45ADA8;
 }
 
@@ -9,6 +8,12 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+ul.search {
+  position: absolute;
+  right: 28px;
+  background-color: #45ADA8;
 }
 
 ul.search li {
@@ -56,6 +61,9 @@ ul li:hover {
 li > strong {
   color: #547980;
   font-size: 24px;
+}
+ul.search {
+  width: 300px;
 }
 
 ul.search li.category {
@@ -145,4 +153,42 @@ button.primary {
   pointer-events: none;
   filter: blur(3px);
   -webkit-filter: blur(3px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.search-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.search-input {
+  width: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.025);
+  padding: 10px 15px 13px;
+  transition: 1s all cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.search-input:focus {
+  width: 234px;
+}
+
+.search-input:hover {
+  box-shadow: 1px 14px 25px 0 rgba(0, 0, 0, 0.075);
+}
+
+.search-input__label {
+  padding: 0.5rem;
+  color: #E5FCC2;
 }
