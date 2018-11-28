@@ -1,1 +1,30 @@
 {{input value=q key-up=(action "q")}}
+
+{{#if pending}}
+  <ul class="search">
+    <li>
+      SEARCHING!
+    </li>
+  </ul>
+{{/if}}
+
+{{#if results}}
+<ul class="search">
+  {{#if books}}
+    <li class="category">Books</li>
+    {{#each books as |book|}}
+      <li>
+        {{book.title}} - {{book.price}}
+      </li>
+    {{/each}}
+  {{/if}}
+  {{#if authors}}
+    <li class="category">Authors</li>
+    {{#each authors as |author|}}
+      <li>
+        {{author.name}} ({{author.books.length}})
+      </li>
+    {{/each}}
+  {{/if}}
+</ul>
+{{/if}}
