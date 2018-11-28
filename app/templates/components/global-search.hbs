@@ -1,31 +1,33 @@
-<div class="search-container">
-  {{input placeholder="Search..." id='q' value=q key-up=(action "q") focus-in=(action "open")  class="search-input"}}
-  <label class="search-input__label" for="q"><i class="fa fa-search"></i></label>
-</div>
+{{#click-outside action=(action "close")}}
+  <div class="search-container">
+    {{input placeholder="Search..." id='q' value=q key-up=(action "q") focus-in=(action "open")  class="search-input"}}
+    <label class="search-input__label" for="q"><i class="fa fa-search"></i></label>
+  </div>
 
-{{#if pending}}
-  <ul class="search">
-    <li>
-      <i class="fa fa-spinner fa-spin"></i>
-    </li>
-  </ul>
-{{/if}}
-
-{{#if results}}
-<ul class="search">
-  {{#if books}}
-    <li class="category">Books</li>
-    {{#each books as |book|}}
+  {{#if pending}}
+    <ul class="search">
       <li>
-        {{book.title}} - ${{book.price}}
+        <i class="fa fa-spinner fa-spin"></i>
       </li>
-    {{/each}}
+    </ul>
   {{/if}}
-  {{#if authors}}
-    <li class="category">Authors</li>
-    {{#each authors as |author|}}
-      {{link-to author.name "author" author.id tagName="li"}}
-    {{/each}}
+
+  {{#if results}}
+  <ul class="search">
+    {{#if books}}
+      <li class="category">Books</li>
+      {{#each books as |book|}}
+        <li>
+          {{book.title}} - ${{book.price}}
+        </li>
+      {{/each}}
+    {{/if}}
+    {{#if authors}}
+      <li class="category">Authors</li>
+      {{#each authors as |author|}}
+        {{link-to author.name "author" author.id tagName="li" invokeAction=(action "close")}}
+      {{/each}}
+    {{/if}}
+  </ul>
   {{/if}}
-</ul>
-{{/if}}
+{{/click-outside}}
