@@ -6,6 +6,5 @@ export default Component.extend({
       this.get('closeModal')();
       this.get('blurBackground')(false);
     }
-
   }
 });

@@ -10,8 +10,10 @@ export default Component.extend({
   ajax: inject(),
   actions: {
     close() {
-      this.set('pending', false)
-      this.set('results', false)
+      this.setProperties({
+        pending: false,
+        results: false
+      })
     },
 
     open() {
@@ -26,33 +28,42 @@ export default Component.extend({
 
     showModal(book) {
       this.send('close')
-      this.set('myBook', book)
-      this.set('showModal', true)
+      this.setProperties({
+        myBook: book,
+        showModal: true
+      })
       this.get('blurBackground')(true);
     },
 
     q() {
-      this.set('results', false)
-      this.set('pending', true)
-      let query = { q: this.get('q') }
+      this.setProperties({
+        results: false,
+        pending: true
+      })
       let sendQuery = () => {
-        if (query.q === '') {
-          this.set('pending', false)
-          this.set('books', null)
-          this.set('authors', null)
-          return
-        }
         this.get('ajax').request('/search', {
           method: 'GET',
           data: query
         }).then(response => {
-          this.set('pending', false)
-          this.set('results', true)
-          this.set('books', response.books)
-          this.set('authors', response.authors)
+          this.setProperties({
+            pending: false,
+            results: true,
+            books: response.books,
+            authors: response.authors
+          })
         })
       }
-      debounce( query, sendQuery, 150)
+      let query = { q: this.get('q') }
+      if (query.q === '') {
+        this.setProperties({
+          pending: false,
+          books: null,
+          authors: null
+        })
+        return
+      } else {
+        debounce(query, sendQuery, 150)
+      }
     }
   }
 });
