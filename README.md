@@ -1,7 +1,6 @@
-# bookstore
+# Bookstore Client
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+EmberJS Client. See https://github.com/ifellinaholeonce/bookstore-api for how to setup the server.
 
 ## Prerequisites
 
@@ -12,46 +11,24 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
-## Installation
+## Setup
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/ifellinaholeonce/bookstore-client`
 * `cd bookstore`
 * `npm install`
 
-## Running / Development
+## Running
 
-* `ember serve`
+* `ember server --proxy http://localhost:3000`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
+## Use
 
-Make use of the many generators for code, try `ember help generate` for more details
+The client uses data from the backend API. Follow the readme on the server repo to set it up. Once the server is running and issues have been created on Github, the client will be able to access authors and books.
 
-### Running Tests
+### Search
 
-* `ember test`
-* `ember test --server`
+I have added a search feature to the client. It queries the search controller on the server which returns relevant Books and Authors.
+![alt text][search]
 
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+[search]: https://github.com/ifellinaholeonce/bookstore-client/blob/master/docs/search.png "Search Feature"
